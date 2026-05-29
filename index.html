@@ -17,7 +17,6 @@
         <a href="#about" data-tab="about">關於</a>
         <a href="#ai-program" data-tab="ai-program">課程</a>
         <a href="#work" data-tab="work">活動</a>
-        <a href="#contact" data-tab="contact">聯絡</a>
       </nav>
     </header>
 
@@ -167,16 +166,7 @@
         </div>
       </section>
 
-      <section class="section contact tab-section" id="contact" aria-labelledby="contact-title">
-        <div>
-          <p class="section-kicker">Contact</p>
-          <h2 id="contact-title">有想法正在成形嗎？</h2>
-        </div>
-        <div class="contact-panel">
-          <p>歡迎來信聊聊專案、合作或任何值得被好好整理的想法。</p>
-          <a href="mailto:hello@example.com">hello@example.com</a>
-        </div>
-      </section>
+      <!-- contact removed per request -->
     </main>
 
     <script>
@@ -201,6 +191,36 @@
         const start = hash || 'about';
         // small timeout to ensure DOM ready
         setTimeout(()=> activate(start), 0);
+
+        // handle back/forward or other links that change the hash
+        window.addEventListener('hashchange', ()=> {
+          const h = location.hash.replace('#','');
+          if(h) activate(h);
+        });
+
+        // attempt to fetch SMART TMU activities list and map item links to cards
+        (function hydrateActivityLinks(){
+          const listUrl = 'https://cis.tmu.edu.tw/front/Project/AI_1/AI_3/news.php';
+          fetch(listUrl).then(r=> r.text()).then(html=>{
+            try{
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              const anchors = Array.from(doc.querySelectorAll('a'))
+                .filter(a=> a.href && a.href.includes('news.php'));
+              const map = new Map();
+              anchors.forEach(a=> map.set(a.textContent.trim(), a.href));
+
+              document.querySelectorAll('.activity-card').forEach(card=>{
+                const title = card.querySelector('h3').textContent.trim();
+                const link = card.querySelector('.card-link');
+                if(map.has(title)){
+                  link.href = map.get(title);
+                  link.target = '_blank';
+                }
+              });
+            }catch(e){console.debug('activity hydrate parse failed', e)}
+          }).catch(err=>console.debug('activity hydrate fetch failed (CORS?)', err));
+        })();
       })();
     </script>
   </body>
