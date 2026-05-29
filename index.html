@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>個人網頁 | Your Name</title>
+    <title>個人網頁 | Smart TMU</title>
     <meta
       name="description"
       content="一頁式個人網頁，介紹專長、作品與聯絡方式。"
@@ -12,25 +12,24 @@
   </head>
   <body>
       <header class="site-header">
-      <a class="brand" href="#top">Your Name</a>
+      <a class="brand" href="#top">Smart TMU</a>
       <nav class="nav" aria-label="主要導覽">
-        <a href="#about">關於</a>
-        <a href="#ai-program">課程</a>
-        <a href="#work">活動</a>
+        <a href="#about">關於我們</a>
+        <a href="#ai-program">學課程</a>
+        <a href="#work">找活動</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">智慧生醫 / 人工智慧 / 程式設計</p>
-          <h1 id="hero-title">你好，我是 Your Name。</h1>
+          <p class="eyebrow">＃智慧醫療 ＃人工智慧＃程式設計</p>
+          <h1 id="hero-title">關於Smart TMU</h1>
           <p class="lead">
-            我正在探索醫學知識與人工智慧的交會，關注健康數據處理、AI 應用與數位醫療中的實務問題。
+            探索醫療領域專業知識與人工智慧技術的跨領域交會，從課程、活動到競賽開啟智慧醫療跨域學習之路
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#ai-program">學習方向</a>
-            <a class="button secondary" href="mailto:hello@example.com">寄信給我</a>
+            <a class="button primary" href="mailto:ilc_group@tmu.edu.tw">聯絡我們</a>
           </div>
         </div>
         <figure class="hero-media">
@@ -170,7 +169,22 @@
     </main>
 
     <script>
-      // Hydrate activity card links from SMART TMU list (keeps normal anchor behavior for single-page)
+      // Smooth-scroll internal anchors and hydrate activity card links from SMART TMU list.
+      (function setupInternalAnchorScroll(){
+        document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+          const href = anchor.getAttribute('href');
+          if(href.length === 1) return;
+          anchor.addEventListener('click', event => {
+            const target = document.querySelector(href);
+            if(target){
+              event.preventDefault();
+              target.scrollIntoView({behavior:'smooth', block:'start'});
+              history.replaceState(null, '', href);
+            }
+          });
+        });
+      })();
+
       (function hydrateActivityLinks(){
         const listUrl = 'https://cis.tmu.edu.tw/front/Project/AI_1/AI_3/news.php';
         fetch(listUrl).then(r=> r.text()).then(html=>{
