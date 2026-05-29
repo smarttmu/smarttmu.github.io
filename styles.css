@@ -100,9 +100,4 @@ h1{margin:0;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.02;color:var(--ntud
 .muted{color:var(--muted)}
 .card{background:var(--card);padding:18px;border-radius:8px;box-shadow:var(--shadow)}
 
-/* tab sections */
-.tab-section{display:none}
-.tab-section.active{display:block}
-
-.nav a.active{outline:2px solid rgba(255,255,255,0.06);box-shadow:0 4px 12px rgba(0,0,0,0.12)}
 

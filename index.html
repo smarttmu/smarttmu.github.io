@@ -14,9 +14,9 @@
       <header class="site-header">
       <a class="brand" href="#top">Your Name</a>
       <nav class="nav" aria-label="主要導覽">
-        <a href="#about" data-tab="about">關於</a>
-        <a href="#ai-program" data-tab="ai-program">課程</a>
-        <a href="#work" data-tab="work">活動</a>
+        <a href="#about">關於</a>
+        <a href="#ai-program">課程</a>
+        <a href="#work">活動</a>
       </nav>
     </header>
 
@@ -38,7 +38,7 @@
         </figure>
       </section>
 
-      <section class="section intro tab-section" id="about" aria-labelledby="about-title">
+      <section class="section intro" id="about" aria-labelledby="about-title">
         <div>
           <p class="section-kicker">關於 SMART TMU</p>
           <h2 id="about-title">SMART TMU — 臺北醫學大學智慧醫療與人工智慧學習社群</h2>
@@ -73,7 +73,7 @@
         </article>
       </section>
 
-      <section class="section ai-program tab-section" id="ai-program" aria-labelledby="ai-title">
+      <section class="section ai-program" id="ai-program" aria-labelledby="ai-title">
         <div class="section-heading">
           <div>
             <p class="section-kicker">學課程</p>
@@ -102,7 +102,7 @@
         <p class="muted" style="margin-top:14px">更多完整課程列表與開課時程請參考原站或教務單位公告。</p>
       </section>
 
-      <section class="section work tab-section" id="work" aria-labelledby="work-title">
+      <section class="section work" id="work" aria-labelledby="work-title">
         <div class="section-heading">
           <p class="section-kicker">活動快訊</p>
           <h2 id="work-title">最新活動</h2>
@@ -170,57 +170,28 @@
     </main>
 
     <script>
-      // Simple tab navigation without opening new pages
-      (function(){
-        const tabs = document.querySelectorAll('.nav a[data-tab]');
-        const sections = document.querySelectorAll('.tab-section');
+      // Hydrate activity card links from SMART TMU list (keeps normal anchor behavior for single-page)
+      (function hydrateActivityLinks(){
+        const listUrl = 'https://cis.tmu.edu.tw/front/Project/AI_1/AI_3/news.php';
+        fetch(listUrl).then(r=> r.text()).then(html=>{
+          try{
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const anchors = Array.from(doc.querySelectorAll('a'))
+              .filter(a=> a.href && a.href.includes('news.php'));
+            const map = new Map();
+            anchors.forEach(a=> map.set(a.textContent.trim(), a.href));
 
-        function activate(tabName){
-          sections.forEach(s=> s.id===tabName? s.classList.add('active') : s.classList.remove('active'));
-          tabs.forEach(t=> t.dataset.tab===tabName? t.classList.add('active') : t.classList.remove('active'));
-          history.replaceState(null,'', '#'+tabName);
-        }
-
-        tabs.forEach(t=> t.addEventListener('click', e=>{
-          e.preventDefault();
-          activate(t.dataset.tab);
-        }));
-
-        // initialize from hash or default to about
-        const hash = location.hash.replace('#','');
-        const start = hash || 'about';
-        // small timeout to ensure DOM ready
-        setTimeout(()=> activate(start), 0);
-
-        // handle back/forward or other links that change the hash
-        window.addEventListener('hashchange', ()=> {
-          const h = location.hash.replace('#','');
-          if(h) activate(h);
-        });
-
-        // attempt to fetch SMART TMU activities list and map item links to cards
-        (function hydrateActivityLinks(){
-          const listUrl = 'https://cis.tmu.edu.tw/front/Project/AI_1/AI_3/news.php';
-          fetch(listUrl).then(r=> r.text()).then(html=>{
-            try{
-              const parser = new DOMParser();
-              const doc = parser.parseFromString(html, 'text/html');
-              const anchors = Array.from(doc.querySelectorAll('a'))
-                .filter(a=> a.href && a.href.includes('news.php'));
-              const map = new Map();
-              anchors.forEach(a=> map.set(a.textContent.trim(), a.href));
-
-              document.querySelectorAll('.activity-card').forEach(card=>{
-                const title = card.querySelector('h3').textContent.trim();
-                const link = card.querySelector('.card-link');
-                if(map.has(title)){
-                  link.href = map.get(title);
-                  link.target = '_blank';
-                }
-              });
-            }catch(e){console.debug('activity hydrate parse failed', e)}
-          }).catch(err=>console.debug('activity hydrate fetch failed (CORS?)', err));
-        })();
+            document.querySelectorAll('.activity-card').forEach(card=>{
+              const title = card.querySelector('h3').textContent.trim();
+              const link = card.querySelector('.card-link');
+              if(map.has(title)){
+                link.href = map.get(title);
+                link.target = '_blank';
+              }
+            });
+          }catch(e){console.debug('activity hydrate parse failed', e)}
+        }).catch(err=>console.debug('activity hydrate fetch failed (CORS?)', err));
       })();
     </script>
   </body>
