@@ -68,6 +68,16 @@ h1{margin:0;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.02;color:var(--ntud
 .work-list{display:grid;gap:12px}
 .work-item{display:grid;grid-template-columns:120px 1fr 1fr;gap:18px;align-items:center;background:var(--card);padding:18px;border-radius:8px;box-shadow:var(--shadow)}
 
+/* activity card grid */
+.activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:8px}
+.activity-card{background:var(--card);padding:18px;border-radius:10px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.activity-card .card-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-weight:700;font-size:0.95rem}
+.activity-card h3{margin:4px 0 0;font-size:1.05rem;color:var(--ntudark)}
+.activity-card .excerpt{margin:0;color:var(--muted);font-size:0.95rem}
+.card-link{margin-top:auto;display:inline-block;color:var(--ntublue);font-weight:800}
+.status{padding:4px 8px;border-radius:999px;background:rgba(11,87,164,0.08);color:var(--ntublue);font-weight:800;font-size:0.85rem}
+.status.muted{background:transparent;color:var(--muted);font-weight:700}
+
 .contact-panel{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 .contact-panel a{color:var(--ntudark);font-weight:800;border-bottom:3px solid var(--accent);padding-bottom:4px}
 
