@@ -291,7 +291,7 @@ h3{
 
 .about-media img{
   width:100%;
-  aspect-ratio:17/10;
+  aspect-ratio:17/14;
   object-fit:cover;
 }
 
@@ -394,14 +394,6 @@ h3{
 
 .course-list article{
   padding:24px;
-}
-
-.course-image{
-  width:100%;
-  margin-top:8px;
-  border:1px solid var(--line);
-  border-radius:6px;
-  object-fit:cover;
 }
 
 .course-list time{
