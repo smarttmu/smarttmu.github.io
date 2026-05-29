@@ -3,111 +3,134 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>個人網頁 | Smart TMU</title>
+    <title>Smart TMU | 智慧醫療與 AI 學習入口</title>
     <meta
       name="description"
-      content="一頁式個人網頁，介紹專長、作品與聯絡方式。"
+      content="Smart TMU 彙整臺北醫學大學智慧醫療、人工智慧課程、活動與跨域學習資源。"
     >
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-      <header class="site-header">
-      <a class="brand" href="#top">Smart TMU</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到 Smart TMU 首頁">
+        <span class="brand-mark">🤖</span>
+        <span>AI @ TMU</span>
+      </a>
       <nav class="nav" aria-label="主要導覽">
         <a href="#about">關於我們</a>
-        <a href="#ai-program">學課程</a>
-        <a href="#work">找活動</a>
+        <a href="#ai-course">學課程</a>
+        <a href="#ai-activity">找活動</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">＃智慧醫療 ＃人工智慧＃程式設計</p>
-          <h1 id="hero-title">關於Smart TMU</h1>
+          <p class="eyebrow">智慧生醫教育在北醫</p>
+          <h1 id="hero-title">讓「醫療專業」與「AI能力」跨域接軌</h1>
           <p class="lead">
-            探索醫療領域專業知識與人工智慧技術的跨領域交會，從課程、活動到競賽開啟智慧醫療跨域學習之路
+            跨領域學院整合跨領域課程、人工智慧領域微學程、校內外活動與競賽資訊，協助北醫人從程式設計、跨域思維到智慧醫療應用，建立能真正落地的學習路徑。
           </p>
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:ilc_group@tmu.edu.tw">聯絡我們</a>
+          <div class="hero-actions" aria-label="主要操作">
+            <a class="button secondary" href="#ai-course">查看課程</a>
+            <a class="button secondary" href="#ai-activity">瀏覽活動</a>
+            <a class="button contact" href="mailto:ilc_group@tmu.edu.tw">聯絡我們</a>
           </div>
         </div>
         <figure class="hero-media">
-          <img src="assets/hero-visual.png" alt="柔和光線中的工作桌、筆記本與抽象色塊主視覺">
+          <img src="assets/AImap.png" alt="Smart TMU 人工智慧學習地圖">
         </figure>
       </section>
 
       <section class="section intro" id="about" aria-labelledby="about-title">
-        <div>
-          <p class="section-kicker">關於 SMART TMU</p>
-          <h2 id="about-title">SMART TMU — 臺北醫學大學智慧醫療與人工智慧學習社群</h2>
+        <div class="intro-copy">
+          <p class="section-kicker">關於 Smart TMU</p>
+          <h2 id="about-title">臺北醫學大學智慧醫療與人工智慧學習社群</h2>
+          <p>
+            我們把醫學、資料、演算法與實務場域放在同一張學習地圖上，讓不同背景的學生能找到合適的入口，逐步累積跨域合作所需的語言與工具。
+          </p>
+          <div class="metric-row" aria-label="社群重點">
+            <div>
+              <strong>AI</strong>
+              <span>核心課程</span>
+            </div>
+            <div>
+              <strong>Med</strong>
+              <span>醫療情境</span>
+            </div>
+            <div>
+              <strong>Lab</strong>
+              <span>實作活動</span>
+            </div>
+          </div>
         </div>
-        <p>
-          SMART TMU 為臺北醫學大學跨領域學院推動的智慧醫療與人工智慧相關學習計畫與社群，
-          彙整校內外課程、活動與資源，並與全國大專校院 AI 聯盟 (TAICA) 合作提供跨校選課與教學資源。
-        </p>
-        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
-          <img src="https://cis.tmu.edu.tw/files/users/4/1(1).jpg" alt="SMART TMU 圖片 1" style="width:240px;border-radius:6px;">
-          <img src="https://cis.tmu.edu.tw/files/users/4/2(1).jpg" alt="SMART TMU 圖片 2" style="width:240px;border-radius:6px;">
-          <img src="https://cis.tmu.edu.tw/files/users/4/image(34).png" alt="SMART TMU 圖片 3" style="width:240px;border-radius:6px;">
-        </div>
-        <p class="muted" style="margin-top:14px">如需更多資訊，請參考原站資源或加入 SMART TMU 社群以接收活動與課程更新。</p>
+        <figure class="about-media">
+          <img src="assets/About.jpg" alt="Smart TMU 課程與活動現場">
+        </figure>
       </section>
 
-      <section class="section skills" aria-label="專長">
-        <article>
-          <span>01</span>
-          <h3>跨域整合</h3>
-          <p>結合醫學基礎、人工智慧技術與程式設計能力，理解健康資料的應用情境。</p>
-        </article>
-        <article>
-          <span>02</span>
-          <h3>資料與模型</h3>
-          <p>關注資料收集、清理、演算法選擇與模型建構，讓 AI 能落到可驗證的問題上。</p>
-        </article>
-        <article>
-          <span>03</span>
-          <h3>生醫轉譯</h3>
-          <p>把技術應用到數位醫療、精準醫療與智慧醫療，並重視資訊倫理與實務限制。</p>
-        </article>
-      </section>
-
-      <section class="section ai-program" id="ai-program" aria-labelledby="ai-title">
+      <section class="section focus" aria-labelledby="focus-title">
         <div class="section-heading">
+          <p class="section-kicker">學習焦點</p>
+          <h2 id="focus-title">從會使用工具，到能判斷問題</h2>
+        </div>
+        <div class="focus-grid">
+          <article>
+            <span>01</span>
+            <h3>跨域整合</h3>
+            <p>結合醫學基礎、人工智慧技術與程式設計能力，理解健康資料的應用情境。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>資料與模型</h3>
+            <p>關注資料收集、清理、演算法選擇與模型建構，讓 AI 能落到可驗證的問題上。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>生醫轉譯</h3>
+            <p>把技術應用到數位醫療、精準醫療與智慧醫療，並重視資訊倫理與實務限制。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section ai-course" id="ai-course" aria-labelledby="ai-title">
+        <div class="section-heading split">
           <div>
             <p class="section-kicker">學課程</p>
-            <h2 id="ai-title">北醫跨領域學院：人工智慧相關課程與合作</h2>
+            <h2 id="ai-title">人工智慧相關課程與合作資源</h2>
           </div>
           <a class="source-link" href="https://cis.tmu.edu.tw/front/Project/AI_1/AI_6/pages.php?ID=e8b5707eb6deead7a707e0fe689c09cf" target="_blank" rel="noreferrer">參考來源</a>
         </div>
-        <div class="program-grid">
-          <article>
-            <h3>聯盟與資源</h3>
-            <p>本校為教育部「臺灣大專院校人工智慧學程聯盟 (TAICA)」之成員，學生可選修聯盟課程並取得學分。</p>
+        <div class="program-layout">
+          <article class="program-feature">
+            <p class="tag">TAICA 聯盟</p>
+            <h3>跨校人工智慧學程資源</h3>
+            <p>本校為教育部「臺灣大專院校人工智慧學程聯盟」成員，學生可選修聯盟課程並取得學分，擴充校內外 AI 學習資源。</p>
           </article>
-          <article>
-            <h3>114-1 重點課程</h3>
-            <p>範例課程包括：基礎程式設計 (C++)、人工智慧導論、生成式人工智慧與機器學習導論、電腦視覺實務等。</p>
-          </article>
-          <article>
-            <h3>114-2 重點課程</h3>
-            <p>範例課程包括：機率與統計、人工智慧倫理、深度學習、大型語言模型與資訊安全系統等。</p>
-          </article>
+          <div class="course-list" aria-label="重點課程">
+            <article>
+              <time>114-1</time>
+              <img class="course-image" src="assets/1141.jpeg" alt="114-1 基礎與應用入門課程海報">
+            </article>
+            <article>
+              <time>114-2</time>
+              <img class="course-image" src="assets/1142.jpg" alt="114-2 模型與治理進階課程海報">
+            </article>
+          </div>
         </div>
-        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
-          <img src="https://cis.tmu.edu.tw/files/users/4/%E6%8A%95%E5%BD%B1%E7%89%871(2).jpeg" alt="課程海報1" style="width:260px;border-radius:6px;">
-          <img src="https://cis.tmu.edu.tw/files/users/4/1142%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7_%E6%B5%B7%E5%A0%B1%E6%A9%9F.jpg" alt="課程海報2" style="width:260px;border-radius:6px;">
-        </div>
-        <p class="muted" style="margin-top:14px">更多完整課程列表與開課時程請參考原站或教務單位公告。</p>
+        <p class="muted">完整課程列表與開課時程請以原站或教務單位公告為準。</p>
       </section>
 
-      <section class="section work" id="work" aria-labelledby="work-title">
-        <div class="section-heading">
-          <p class="section-kicker">活動快訊</p>
-          <h2 id="work-title">最新活動</h2>
+      <section class="section ai-activity" id="ai-activity" aria-labelledby="ai-activity-title">
+        <div class="section-heading split">
+          <div>
+            <p class="section-kicker">活動快訊</p>
+            <h2 id="ai-activity-title">最新活動</h2>
+          </div>
+          <a class="source-link" href="https://cis.tmu.edu.tw/front/Project/AI_1/AI_3/news.php" target="_blank" rel="noreferrer">活動列表</a>
         </div>
         <div class="activity-grid">
-          <article class="activity-card">
+          <article class="activity-card featured">
             <div class="card-meta"><time datetime="2026-05-11">1150511</time><span class="status">置頂</span></div>
             <h3>利用 n8n 打造 AI 驅動的醫療自動化工作流</h3>
             <p class="excerpt">座談 / 工作坊</p>
@@ -116,14 +139,14 @@
 
           <article class="activity-card">
             <div class="card-meta"><time datetime="2026-04-27">1150427</time><span class="status muted">已結束</span></div>
-            <h3>Google 協作平台 × Lovable 實作工作坊</h3>
+            <h3>Google 協作平台 x Lovable 實作工作坊</h3>
             <p class="excerpt">實作工作坊</p>
             <a class="card-link" href="https://cis.tmu.edu.tw/front/Project/AI_1/AI_3/news.php" target="_blank" rel="noreferrer">詳細資訊</a>
           </article>
 
           <article class="activity-card">
             <div class="card-meta"><time datetime="2026-04-25">1150425</time><span class="status muted">已結束</span></div>
-            <h3>AI 智慧醫療三日工作坊 — 病床偵測</h3>
+            <h3>AI 智慧醫療三日工作坊 - 病床偵測</h3>
             <p class="excerpt">密集訓練型工作坊</p>
             <a class="card-link" href="https://cis.tmu.edu.tw/front/Project/AI_1/AI_3/news.php" target="_blank" rel="noreferrer">詳細資訊</a>
           </article>
@@ -164,49 +187,11 @@
           </article>
         </div>
       </section>
-
-      <!-- contact removed per request -->
     </main>
 
-    <script>
-      // Smooth-scroll internal anchors and hydrate activity card links from SMART TMU list.
-      (function setupInternalAnchorScroll(){
-        document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-          const href = anchor.getAttribute('href');
-          if(href.length === 1) return;
-          anchor.addEventListener('click', event => {
-            const target = document.querySelector(href);
-            if(target){
-              event.preventDefault();
-              target.scrollIntoView({behavior:'smooth', block:'start'});
-              history.replaceState(null, '', href);
-            }
-          });
-        });
-      })();
-
-      (function hydrateActivityLinks(){
-        const listUrl = 'https://cis.tmu.edu.tw/front/Project/AI_1/AI_3/news.php';
-        fetch(listUrl).then(r=> r.text()).then(html=>{
-          try{
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const anchors = Array.from(doc.querySelectorAll('a'))
-              .filter(a=> a.href && a.href.includes('news.php'));
-            const map = new Map();
-            anchors.forEach(a=> map.set(a.textContent.trim(), a.href));
-
-            document.querySelectorAll('.activity-card').forEach(card=>{
-              const title = card.querySelector('h3').textContent.trim();
-              const link = card.querySelector('.card-link');
-              if(map.has(title)){
-                link.href = map.get(title);
-                link.target = '_blank';
-              }
-            });
-          }catch(e){console.debug('activity hydrate parse failed', e)}
-        }).catch(err=>console.debug('activity hydrate fetch failed (CORS?)', err));
-      })();
-    </script>
+    <footer class="site-footer">
+      <p>Smart TMU</p>
+      <a href="mailto:ilc_group@tmu.edu.tw">ilc_group@tmu.edu.tw</a>
+    </footer>
   </body>
 </html>
